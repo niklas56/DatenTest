@@ -14,9 +14,15 @@ public class QuizDateien {
 		JSONArray JA = new JSONArray();
 		String [] arr = {"a", "b", "c", "d"};
 		JSONObject frage01 = frage("xy", arr, 0, 30);
+		JSONObject frage02 = frage("xyz", arr, 2, 25);
+		JSONObject frage03 = frage("xyzas", arr, 2, 25);
+		JSONObject frage04 = frage("xyaskjdakzgsdz", arr, 2, 25);
 		JA.put(frage01);
+		JA.put(frage02);
+		JA.put(frage03);
+		JA.put(frage04);
 		write(JA, "quiz01");
-		JSONArray JA2 = new JSONArray(read(new File("quiz01.json")));
+		System.out.print(JA.toString());
 	}
 	
 	public static JSONObject frage(String frage, String [] antworten, int loesung, int zeit) {
@@ -36,9 +42,9 @@ public class QuizDateien {
 		}return "";
 	}
 	
-	public static void write(JSONArray JA, String name) {
+	public static void write(JSONArray frage, String name) {
 		try(FileWriter fileWriter = new FileWriter(name+".json")) {            
-			JA.write(fileWriter);
+			frage.write(fileWriter);
 		    fileWriter.close(); 
 		} catch (IOException e) { 
 		    System.err.println("IOExeption");
