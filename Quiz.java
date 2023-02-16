@@ -16,7 +16,8 @@ public class Quiz {
 
     public Quiz(File quizDatei) {
         try {
-			String JSONtext = Files.readString(Path.of(quizDatei.getPath()));
+			String JSONtext = Files.readString(Path.of(quizDatei.getPath()));  //hallo
+            
             fragen = new JSONArray(JSONtext);
 		} catch (IOException e) {
 			e.printStackTrace();
